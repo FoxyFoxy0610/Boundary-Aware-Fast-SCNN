@@ -20,7 +20,7 @@ To address the boundary challenge, we integrated the **Boundary-aware Loss (BIoU
 
 **Optimization Impact**: By forcing the model to focus its learning capacity on difficult topological edges, this approach results in much cleaner predicted masks and drastically improves the geometric alignment of lane boundaries.
 
-![Optimization Impact](assets/images/optimization_impact.jpg)
+![Optimization Impact](assets/images/model_performance.jpg)
 
 ## 🏗️ Underlying Framework
 This project is built upon the Fast-SCNN architecture.
