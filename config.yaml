@@ -1,0 +1,23 @@
+model:
+  name: "fast_scnn"
+
+dataset:
+  name: "citys"
+  dataset_type: "custom_agricultural" # Options: 'public_cityscapes', 'custom_agricultural'
+  base_size: 1024
+  crop_size: 1024
+
+training:
+  epochs: 300
+  batch_size: 8
+  learning_rate: 0.01
+  weight_decay: 0.001
+  optimizer: "AdamW" # Options: 'AdamW', 'SGD'
+
+loss:
+  use_biou: true
+  dilation_ratio: 0.02
+  max_biou_ratio: 0.5
+
+# output:
+#   save_dir: "./checkpoints"
