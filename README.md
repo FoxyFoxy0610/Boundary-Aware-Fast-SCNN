@@ -2,11 +2,11 @@
 
 This repository provides an optimized PyTorch implementation of Fast-SCNN, tailored specifically for agricultural lane and plot segmentation. The core enhancement is the integration of the **Boundary Intersection over Union (BIoU)** loss mechanism, which significantly improves boundary prediction accuracy.
 
-## 📌 Background and Motivation
+## Background and Motivation
 
 In agricultural environments, traditional semantic segmentation models often struggle to capture precise boundaries between navigable lanes and crop plots. Small boundary deviations can lead to significant navigation errors for autonomous vehicles. 
 
-### 🔬 Boundary-aware Loss Mechanism
+### Boundary-aware Loss Mechanism
 To address the boundary challenge, we integrated the **Boundary-aware Loss (BIoU)** into the training phase. Unlike standard Cross-Entropy or OHEM losses that treat all pixels equally, our Boundary-aware Loss explicitly penalizes misclassifications near the semantic boundaries through the following mechanisms:
 
 1. **Boundary Definition via Morphology**:
@@ -22,12 +22,12 @@ To address the boundary challenge, we integrated the **Boundary-aware Loss (BIoU
 
 <img width="2000" height="1125" alt="model_performance" src="https://github.com/user-attachments/assets/c81437bf-f7a0-4a0c-971c-b6d82440c922" />
 
-## 🏗️ Underlying Framework
+## Underlying Framework
 This project is built upon the Fast-SCNN architecture.
 - **Paper**: [Fast-SCNN: Fast Semantic Segmentation Network](https://arxiv.org/abs/1902.04502)
 - **Original PyTorch Implementation**: [Fast-SCNN-pytorch](https://github.com/Tramac/Fast-SCNN-pytorch)
 
-## 📁 Environment Setup
+## Environment Setup
 
 1. Clone the repository:
    ```bash
@@ -39,7 +39,7 @@ This project is built upon the Fast-SCNN architecture.
    pip install -r requirements.txt
    ```
 
-## 🗃️ Dataset Preparation & Annotation Tool
+## Dataset Preparation & Annotation Tool
 
 ### Dataset Structure
 Your dataset should be organized following the standard Cityscapes format:
@@ -67,7 +67,7 @@ python json_to_labelIDs.py --input_dir "path/to/your/json/folder" --dataset_type
 ```
 This script will parse all `.json` files in the target directory and generate the corresponding `_labelIds.png` training masks alongside them.
 
-## 🚀 Quick Start (Demo)
+## Quick Start (Demo)
 
 This repository comes with a set of default demo files located in `datasets/` and `weights/`. You can immediately test the pipeline without any configuration.
 
@@ -89,11 +89,11 @@ Predict the mask for a single image and save the result to `pred_result/`.
 python predict.py
 ```
 
-## ⚙️ Configuration
+## Configuration
 The `config.yaml` file controls the entire training and dataset logic.
 - `use_biou`: Set to `true` to enable Boundary-aware loss, `false` for standard loss.
 - `dataset_type`: Supports `custom_agricultural` (2 classes), `asparagus` (3 classes), and `public_cityscapes` (19 classes).
 
-## 📊 Evaluation Metrics
+## Evaluation Metrics
 During `eval.py`, regardless of whether `use_biou` is turned on for training, the script will strictly calculate both **MIoU** and **BIoU** for every single sample. The granular results will be saved in a CSV format for detailed analysis.
 
