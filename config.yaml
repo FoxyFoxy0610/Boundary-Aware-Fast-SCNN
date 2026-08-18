@@ -3,7 +3,7 @@ model:
 
 dataset:
   name: "citys"
-  dataset_type: "custom_agricultural" # Options: 'public_cityscapes', 'custom_agricultural'
+  dataset_type: "custom_agricultural" # Options: 'public_cityscapes', 'custom_agricultural', 'asparagus'
   base_size: 1024
   crop_size: 1024
 
